@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Jazztime\\Desktop\\TARge24\\Veebiarendus\\AdvancedAjax\\AdvancedAjax\\AdvancedAjax.csproj": {}
+    "C:\\Users\\Jazztime\\Desktop\\TARge24\\Veebiarendus\\AdvancedAjax\\AdvancedAjax.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Jazztime\\Desktop\\TARge24\\Veebiarendus\\AdvancedAjax\\AdvancedAjax\\AdvancedAjax.csproj": {
+    "C:\\Users\\Jazztime\\Desktop\\TARge24\\Veebiarendus\\AdvancedAjax\\AdvancedAjax.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Jazztime\\Desktop\\TARge24\\Veebiarendus\\AdvancedAjax\\AdvancedAjax\\AdvancedAjax.csproj",
+        "projectUniqueName": "C:\\Users\\Jazztime\\Desktop\\TARge24\\Veebiarendus\\AdvancedAjax\\AdvancedAjax.csproj",
         "projectName": "AdvancedAjax",
-        "projectPath": "C:\\Users\\Jazztime\\Desktop\\TARge24\\Veebiarendus\\AdvancedAjax\\AdvancedAjax\\AdvancedAjax.csproj",
+        "projectPath": "C:\\Users\\Jazztime\\Desktop\\TARge24\\Veebiarendus\\AdvancedAjax\\AdvancedAjax.csproj",
         "packagesPath": "C:\\Users\\Jazztime\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Jazztime\\Desktop\\TARge24\\Veebiarendus\\AdvancedAjax\\AdvancedAjax\\obj\\",
+        "outputPath": "C:\\Users\\Jazztime\\Desktop\\TARge24\\Veebiarendus\\AdvancedAjax\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
@@ -50,6 +50,22 @@
       "frameworks": {
         "net8.0": {
           "targetAlias": "net8.0",
+          "dependencies": {
+            "Microsoft.EntityFrameworkCore.SqlServer": {
+              "target": "Package",
+              "version": "[9.0.5, )"
+            },
+            "Microsoft.EntityFrameworkCore.Tools": {
+              "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[9.0.5, )"
+            },
+            "Microsoft.VisualStudio.Web.CodeGeneration.Design": {
+              "target": "Package",
+              "version": "[8.0.7, )"
+            }
+          },
           "imports": [
             "net461",
             "net462",
