@@ -3,7 +3,11 @@
   "DevContainersInfoBarHidden": true,
   "ExpandedNodes": [
     "",
-    "\\Models"
+    "\\Controllers",
+    "\\Models",
+    "\\Views",
+    "\\Views\\City"
   ],
+  "SelectedNode": "\\Controllers\\CityController.cs",
   "PreviewInSolutionExplorer": false
 }
