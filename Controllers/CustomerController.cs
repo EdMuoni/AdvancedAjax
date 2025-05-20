@@ -6,9 +6,12 @@ namespace AdvancedAjax.Controllers
     {
         private readonly AppDbContext _context;
 
-        public CustomerController(AppDbContext context)
+        private readonly IWebHostEnvironment _webHost;
+
+        public CustomerController(AppDbContext context, IWebHostEnvironment webHost)
         {
             _context = context;
+            _webHost = webHost;
         }
 
         public IActionResult Index()
@@ -30,6 +33,9 @@ namespace AdvancedAjax.Controllers
         [HttpPost]
         public IActionResult Create(Customer customer)
         {
+            string uniqueFileName = GetProfilePhotoFileName(customer);
+            customer.PhotoUrl = uniqueFileName;
+
             _context.Add(customer);
             _context.SaveChanges();
             return RedirectToAction(nameof(Index));
@@ -46,8 +52,16 @@ namespace AdvancedAjax.Controllers
         [HttpGet]
         public IActionResult Edit(int Id)
         {
-            Customer customer = _context.Customers.Where(c => c.Id == Id).FirstOrDefault();
+
+            Customer customer = _context.Customers
+               .Include(co => co.City)
+               .Where(c => c.Id == Id).FirstOrDefault();
+
+            customer.CountryId = customer.City.CountryId;
+
             ViewBag.Countries = GetCountries();
+            ViewBag.Cities = GetCities(customer.CountryId);
+
             return View(customer);
         }
 
@@ -55,6 +69,13 @@ namespace AdvancedAjax.Controllers
         [HttpPost]
         public IActionResult Edit(Customer customer)
         {
+
+            if (customer.ProfilePhoto != null)
+            {
+                string uniqueFileName = GetProfilePhotoFileName(customer);
+                customer.PhotoUrl = uniqueFileName;
+            }
+
             _context.Attach(customer);
             _context.Entry(customer).State = EntityState.Modified;
             _context.SaveChanges();
@@ -119,6 +140,39 @@ namespace AdvancedAjax.Controllers
 
             return Json(cities);
 
+        }
+
+        private string GetProfilePhotoFileName(Customer customer)
+        {
+            string uniqueFileName = null;
+
+            if (customer.ProfilePhoto != null)
+            {
+                string uploadsFolder = Path.Combine(_webHost.WebRootPath, "images");
+                uniqueFileName = Guid.NewGuid().ToString() + "_" + customer.ProfilePhoto.FileName;
+                string filePath = Path.Combine(uploadsFolder, uniqueFileName);
+                using (var fileStream = new FileStream(filePath, FileMode.Create))
+                {
+                    customer.ProfilePhoto.CopyTo(fileStream);
+                }
+            }
+            return uniqueFileName;
+        }
+
+        private List<SelectListItem> GetCities(int countryId)
+        {
+
+            List<SelectListItem> cities = _context.Cities
+                .Where(c => c.CountryId == countryId)
+                .OrderBy(n => n.Name)
+                .Select(n =>
+                new SelectListItem
+                {
+                    Value = n.Id.ToString(),
+                    Text = n.Name
+                }).ToList();
+
+            return cities;
         }
 
     }

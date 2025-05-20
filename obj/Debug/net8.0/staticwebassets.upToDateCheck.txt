@@ -1,5 +1,7 @@
 wwwroot\css\site.css
 wwwroot\favicon.ico
+wwwroot\Images\97d62f51-0d9d-4491-a0c6-2055f07e05c8_ViratKohli.jpg
+wwwroot\Images\noimage.png
 wwwroot\js\site.js
 wwwroot\lib\bootstrap\dist\css\bootstrap.css
 wwwroot\lib\bootstrap\dist\css\bootstrap.css.map
