@@ -287,3 +287,4 @@ C:\Users\Jazztime\Desktop\TARge24\Veebiarendus\AdvancedAjax\bin\Debug\net8.0\run
 C:\Users\Jazztime\Desktop\TARge24\Veebiarendus\AdvancedAjax\bin\Debug\net8.0\runtimes\win\lib\net7.0\System.Drawing.Common.dll
 C:\Users\Jazztime\Desktop\TARge24\Veebiarendus\AdvancedAjax\bin\Debug\net8.0\runtimes\win\lib\net7.0\System.Security.Cryptography.ProtectedData.dll
 C:\Users\Jazztime\Desktop\TARge24\Veebiarendus\AdvancedAjax\bin\Debug\net8.0\runtimes\win\lib\net7.0\System.Windows.Extensions.dll
+C:\Users\Jazztime\Desktop\TARge24\Veebiarendus\AdvancedAjax\bin\Debug\net8.0\libman.json
